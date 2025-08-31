@@ -75,6 +75,11 @@ def visualize_attentions(tokens, attentions):
     (starting count from 1).
     """
     # TODO: Update this function to produce diagrams for all layers and heads.
+    print("''''''''''''''''''''''''''''''''''''''mask_token_id''''''''''''''''''''''''''''''''''''''", ' ')
+    print(f'attentions: {attentions} \n')
+    print(f'tokens: {tokens} \n')
+    print("''''''''''''''''''''''''''''''''''''''''inputs''''''''''''''''''''''''''''''''''''''''", ' ')
+
     generate_diagram(
         1,
         1,
