@@ -75,10 +75,14 @@ def visualize_attentions(tokens, attentions):
     (starting count from 1).
     """
     # TODO: Update this function to produce diagrams for all layers and heads.
-    print("''''''''''''''''''''''''''''''''''''''mask_token_id''''''''''''''''''''''''''''''''''''''", ' ')
-    print(f'attentions: {attentions} \n')
-    print(f'tokens: {tokens} \n')
-    print("''''''''''''''''''''''''''''''''''''''''inputs''''''''''''''''''''''''''''''''''''''''", ' ')
+    # print("''''''''''''''''''''''''''''''''''''''mask_token_id''''''''''''''''''''''''''''''''''''''", ' ')
+    # print(f'attentions: {attentions} \n')
+    # print(f'tokens: {tokens} \n')
+    # print("''''''''''''''''''''''''''''''''''''''''inputs''''''''''''''''''''''''''''''''''''''''", ' ')
+    
+    layer = 1
+    head = 1
+    attentions_length = len(attentions)
 
     generate_diagram(
         1,
@@ -86,6 +90,18 @@ def visualize_attentions(tokens, attentions):
         tokens,
         attentions[0][0][0]
     )
+
+    for i in range(attentions_length):
+        layer += 1
+        for j in range(attentions_length)[i]:
+            for k in range(attentions_length)[i][j]:
+                head += 1
+                generate_diagram(
+                    layer,
+                    head,
+                    tokens,
+                    attentions[i][j][k]
+                )
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
